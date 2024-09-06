@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import Link from 'next/link';
-import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -14,8 +14,15 @@ const HomePage: React.FC = () => {
     return () => clearInterval(interval);
   }, [texts.length]);
 
+  const scrollToNextSection = () => {
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+      skillsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 text-white p-4 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 text-white p-4 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-grid-white/[0.2] bg-grid-white/[0.2] transform -skew-y-12"></div>
       </div>
@@ -56,23 +63,6 @@ const HomePage: React.FC = () => {
           Skilled in network administration, system troubleshooting, and IT security. 
           Committed to delivering efficient technical solutions and ensuring smooth IT operations.
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="space-x-6"
-        >
-          <Link href="#skills" 
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
-          >
-            IT Skills
-          </Link>
-          <Link href="#certifications" 
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
-          >
-            Certifications
-          </Link>
-        </motion.div>
         
         <motion.div 
           className="mt-12 space-x-8"
@@ -94,14 +84,13 @@ const HomePage: React.FC = () => {
       </div>
       
       <motion.div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
+        onClick={scrollToNextSection}
       >
-        <svg className="w-8 h-8 text-white animate-bounce" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+        <FaChevronDown className="w-8 h-8 text-white animate-bounce" />
       </motion.div>
     </section>
   );
