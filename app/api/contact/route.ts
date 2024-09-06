@@ -5,11 +5,15 @@ export async function POST(req: Request) {
   const { name, email, message } = await req.json();
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
+      type: 'login',
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
+    debug: true, // Enable debug output
   });
 
   const mailOptions = {
@@ -24,7 +28,11 @@ export async function POST(req: Request) {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    console.log('Verifying connection...');
+    await transporter.verify();
+    console.log('Connection verified, sending email...');
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Message sent: %s', info.messageId);
     return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
   } catch (error: unknown) {
     console.error('Failed to send email:', error);
