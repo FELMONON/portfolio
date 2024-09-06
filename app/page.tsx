@@ -9,6 +9,7 @@ import Education from './components/Education';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import HomePage from './components/Home'; // Renamed import
+import { Analytics } from '@vercel/analytics/react';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
@@ -27,6 +28,7 @@ export default function Home() {
         {activeSection === 'blog' && <Blog />}
         {activeSection === 'contact' && <Contact />}
       </div>
+      <Analytics />
     </main>
   );
 }
