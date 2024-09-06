@@ -22,13 +22,16 @@ const Contact: React.FC = () => {
         body: JSON.stringify({ name, email, message }),
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         setStatus('Message sent successfully!');
         setName('');
         setEmail('');
         setMessage('');
       } else {
-        setStatus('Failed to send message. Please try again.');
+        console.error('Server response:', data);
+        setStatus(`Failed to send message: ${data.error}`);
       }
     } catch (error) {
       console.error('Error sending message:', error);
