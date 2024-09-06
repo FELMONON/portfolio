@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGoogle, FaMicrosoft } from 'react-icons/fa';
-import { SiCompTIA } from 'react-icons/si';
+import { SiComptia } from 'react-icons/si';
 
 interface Certificate {
   title: string;
@@ -29,7 +29,7 @@ const certificates: Certificate[] = [
     date: "Expected 2024",
     description: "Fundamental understanding of installing, configuring, and maintaining devices, PCs, and software for end users",
     status: "In Progress",
-    icon: SiCompTIA
+    icon: SiComptia
   },
   {
     title: "Microsoft Certified: Azure Fundamentals",
