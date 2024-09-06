@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const texts = ["IT Support Specialist", "Network Administrator", "Systems Analyst"];
+  const texts = ["Systems Analyst", "IT Support Specialist", "Network Administrator"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,14 +15,14 @@ const HomePage: React.FC = () => {
   }, [texts.length]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 text-white p-4 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-grid-white/[0.2] bg-grid-white/[0.2] transform -skew-y-12"></div>
       </div>
       
       <div className="max-w-4xl mx-auto text-center z-10">
         <motion.h1 
-          className="text-6xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-500"
+          className="text-7xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-500"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
           Felmon Fekadu
         </motion.h1>
         <motion.div
-          className="text-3xl md:text-4xl mb-8 h-16"
+          className="text-4xl md:text-5xl mb-8 h-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
           </motion.span>
         </motion.div>
         <motion.p 
-          className="text-xl mb-12 max-w-2xl mx-auto"
+          className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
