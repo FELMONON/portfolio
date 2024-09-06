@@ -4,7 +4,17 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiCode, HiServer, HiShieldCheck, HiSupport, HiChip, HiDatabase } from 'react-icons/hi';
 
-const SkillCategory = ({ category, skills }) => {
+interface Skill {
+  name: string;
+  level: number;
+}
+
+interface SkillCategoryProps {
+  category: string;
+  skills: Skill[];
+}
+
+const SkillCategory: React.FC<SkillCategoryProps> = ({ category, skills }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -46,8 +56,8 @@ const SkillCategory = ({ category, skills }) => {
   );
 };
 
-const Skills = () => {
-  const skillCategories = [
+const Skills: React.FC = () => {
+  const skillCategories: SkillCategoryProps[] = [
     {
       category: "Basic Computer Hardware and Software",
       skills: [
