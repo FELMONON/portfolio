@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -82,9 +82,6 @@ const HomePage: React.FC = () => {
         >
           <a href="https://www.linkedin.com/in/felmonfekadu/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
             <FaLinkedin size={24} />
-          </a>
-          <a href="mailto:felmonwork@gmail.com" className="text-white hover:text-blue-400 transition-colors">
-            <FaEnvelope size={24} />
           </a>
         </motion.div>
       </div>
