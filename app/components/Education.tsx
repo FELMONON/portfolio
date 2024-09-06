@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGoogle, FaMicrosoft } from 'react-icons/fa';
 import { SiComptia } from 'react-icons/si';
+import { IoSchoolOutline } from 'react-icons/io5';
 
 interface Certificate {
   title: string;
@@ -15,6 +16,14 @@ interface Certificate {
 }
 
 const certificates: Certificate[] = [
+  {
+    title: "Associate of Science in Computer Science (AS-CS)",
+    issuer: "University of the People",
+    date: "Expected October 2024",
+    description: "Comprehensive program covering programming fundamentals, databases, networking, web programming, operating systems, and software engineering.",
+    status: "In Progress",
+    icon: IoSchoolOutline
+  },
   {
     title: "Google IT Support Professional Certificate",
     issuer: "Google",
@@ -61,7 +70,7 @@ const CertificateCard: React.FC<Certificate> = ({ title, issuer, date, descripti
 
 const Education: React.FC = () => {
   return (
-    <section id="certifications" className="py-20 bg-gray-900 text-white">
+    <section id="education" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-4xl font-bold mb-12 text-center"
@@ -69,9 +78,9 @@ const Education: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          IT Certifications
+          Education & Certifications
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certificates.map((cert, index) => (
             <motion.div
               key={index}
