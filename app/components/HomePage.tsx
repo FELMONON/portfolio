@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -81,9 +81,12 @@ const HomePage: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><FaLinkedin size={24} /></a>
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><FaGithub size={24} /></a>
-          <a href="mailto:your.email@example.com" className="text-white hover:text-blue-400 transition-colors"><FaEnvelope size={24} /></a>
+          <a href="https://www.linkedin.com/in/felmonfekadu/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
+            <FaLinkedin size={24} />
+          </a>
+          <a href="mailto:felmonwork@gmail.com" className="text-white hover:text-blue-400 transition-colors">
+            <FaEnvelope size={24} />
+          </a>
         </motion.div>
       </div>
       
