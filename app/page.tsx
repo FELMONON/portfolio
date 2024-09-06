@@ -3,7 +3,6 @@
 import HomePage from './components/HomePage';
 import Skills from './components/Skills';
 import Education from './components/Education';
-import Contact from './components/Contact';
 import { Analytics } from '@vercel/analytics/react';
 
 export default function Home() {
@@ -12,7 +11,6 @@ export default function Home() {
       <HomePage />
       <Skills />
       <Education />
-      <Contact />
       <Analytics />
     </main>
   );

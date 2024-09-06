@@ -13,35 +13,24 @@ interface Certificate {
 
 const certificates: Certificate[] = [
   {
-    title: "Technical Support Fundamentals",
+    title: "Google IT Support Professional Certificate",
     issuer: "Google",
     date: "2023",
-    description: "Gained essential IT support skills and knowledge of computer networks, operating systems, and security."
+    description: "Comprehensive IT support training covering troubleshooting, customer service, networking, operating systems, system administration, and security"
   },
   {
-    title: "The Bits and Bytes of Computer Networking",
-    issuer: "Google",
+    title: "CompTIA A+",
+    issuer: "CompTIA",
     date: "2023",
-    description: "Learned about network protocols, topologies, and troubleshooting techniques."
+    description: "Fundamental understanding of installing, configuring, and maintaining devices, PCs, and software for end users"
   },
   {
-    title: "Operating Systems and You: Becoming a Power User",
-    issuer: "Google",
+    title: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
     date: "2023",
-    description: "Mastered advanced OS features, command-line interfaces, and system administration tasks."
+    description: "Foundational knowledge of cloud services and how those services are provided with Microsoft Azure"
   },
-  {
-    title: "System Administration and IT Infrastructure Services",
-    issuer: "Google",
-    date: "2023",
-    description: "Explored server management, cloud computing, and IT infrastructure maintenance."
-  },
-  {
-    title: "IT Security: Defense against the digital dark arts",
-    issuer: "Google",
-    date: "2023",
-    description: "Studied cybersecurity principles, threat detection, and implementation of security measures."
-  }
+  // Add more relevant IT certifications here
 ];
 
 const CertificateCard: React.FC<Certificate> = ({ title, issuer, date, description }) => (
@@ -61,7 +50,7 @@ const CertificateCard: React.FC<Certificate> = ({ title, issuer, date, descripti
 
 const Education: React.FC = () => {
   return (
-    <section id="education" className="py-20 bg-gray-900 text-white">
+    <section id="certifications" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-4xl font-bold mb-12 text-center"
@@ -69,7 +58,7 @@ const Education: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Educational Journey
+          IT Certifications
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (

@@ -5,7 +5,7 @@ import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const texts = ["IT Professional", "Web Developer", "Problem Solver"];
+  const texts = ["IT Support Specialist", "Network Administrator", "Systems Analyst"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,7 +16,6 @@ const HomePage: React.FC = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4 relative overflow-hidden">
-      {/* Animated background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-grid-white/[0.2] bg-grid-white/[0.2] transform -skew-y-12"></div>
       </div>
@@ -53,8 +52,9 @@ const HomePage: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          Dedicated IT professional with a strong foundation in web development and problem-solving. 
-          Committed to delivering efficient solutions and driving technological innovation.
+          Dedicated IT professional with Google IT Support certification. 
+          Skilled in network administration, system troubleshooting, and IT security. 
+          Committed to delivering efficient technical solutions and ensuring smooth IT operations.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -62,19 +62,18 @@ const HomePage: React.FC = () => {
           transition={{ delay: 1, duration: 0.8 }}
           className="space-x-6"
         >
-          <Link href="#expertise" 
+          <Link href="#skills" 
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
           >
-            My Expertise
+            IT Skills
           </Link>
-          <Link href="#projects" 
+          <Link href="#certifications" 
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
           >
-            View Projects
+            Certifications
           </Link>
         </motion.div>
         
-        {/* Social media links */}
         <motion.div 
           className="mt-12 space-x-6"
           initial={{ opacity: 0 }}
@@ -90,7 +89,6 @@ const HomePage: React.FC = () => {
         </motion.div>
       </div>
       
-      {/* Scroll down indicator */}
       <motion.div 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -20 }}
