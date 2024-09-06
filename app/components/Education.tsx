@@ -1,93 +1,88 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiAcademicCap, HiBookOpen, HiLightBulb, HiChevronDown, HiChevronUp } from 'react-icons/hi';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGoogle } from 'react-icons/fa';
 
-interface Education {
-  degree: string;
-  institution: string;
-  year: string;
-  description: string[];
+interface Certificate {
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
 }
 
-const EducationCard = ({ education }: { education: Education }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const certificates: Certificate[] = [
+  {
+    title: "Technical Support Fundamentals",
+    issuer: "Google",
+    date: "2023",
+    description: "Gained essential IT support skills and knowledge of computer networks, operating systems, and security."
+  },
+  {
+    title: "The Bits and Bytes of Computer Networking",
+    issuer: "Google",
+    date: "2023",
+    description: "Learned about network protocols, topologies, and troubleshooting techniques."
+  },
+  {
+    title: "Operating Systems and You: Becoming a Power User",
+    issuer: "Google",
+    date: "2023",
+    description: "Mastered advanced OS features, command-line interfaces, and system administration tasks."
+  },
+  {
+    title: "System Administration and IT Infrastructure Services",
+    issuer: "Google",
+    date: "2023",
+    description: "Explored server management, cloud computing, and IT infrastructure maintenance."
+  },
+  {
+    title: "IT Security: Defense against the digital dark arts",
+    issuer: "Google",
+    date: "2023",
+    description: "Studied cybersecurity principles, threat detection, and implementation of security measures."
+  }
+];
 
+const CertificateCard: React.FC<Certificate> = ({ title, issuer, date, description }) => (
+  <motion.div 
+    className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+    whileHover={{ scale: 1.03 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    <div className="flex items-center mb-4">
+      <FaGoogle className="text-blue-500 mr-2" size={24} />
+      <h3 className="text-xl font-semibold text-blue-400">{title}</h3>
+    </div>
+    <p className="text-gray-400 mb-2">{issuer} • {date}</p>
+    <p className="text-gray-300">{description}</p>
+  </motion.div>
+);
+
+const Education: React.FC = () => {
   return (
-    <motion.div 
-      className="bg-gray-800 rounded-lg p-6 mb-6 cursor-pointer"
-      whileHover={{ scale: 1.02 }}
-      onClick={() => setIsExpanded(!isExpanded)}
-    >
-      <h3 className="text-xl font-bold text-green-400 mb-2">{education.degree}</h3>
-      <p className="text-gray-300 mb-2">{education.institution}</p>
-      <p className="text-gray-400 mb-4">{education.year}</p>
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ul className="list-disc list-inside text-gray-300">
-              {education.description.map((item, index) => (
-                <li key={index} className="mb-2">{item}</li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <motion.button 
-        className="mt-4 text-green-400 underline focus:outline-none"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {isExpanded ? 'Show Less' : 'Show More'}
-      </motion.button>
-    </motion.div>
-  );
-};
-
-const Education = () => {
-  const educationHistory: Education[] = [
-    {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "University of Example",
-      year: "2018 - 2022",
-      description: [
-        "Focused on software development, algorithms, and data structures",
-        "Completed projects in web development, mobile app development, and machine learning",
-        "Participated in coding competitions and hackathons"
-      ]
-    },
-    {
-      degree: "High School Diploma",
-      institution: "Example High School",
-      year: "2014 - 2018",
-      description: [
-        "Excelled in mathematics and computer science courses",
-        "Participated in robotics club and science fairs",
-        "Developed a passion for technology and problem-solving"
-      ]
-    }
-  ];
-
-  return (
-    <section className="py-16 px-4 md:px-8 bg-gray-900">
-      <motion.h2 
-        className="text-3xl md:text-4xl font-bold mb-8 text-center text-green-400"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Education Journey
-      </motion.h2>
-      <div className="max-w-3xl mx-auto">
-        {educationHistory.map((edu, index) => (
-          <EducationCard key={index} education={edu} />
-        ))}
+    <section id="education" className="py-20 bg-gray-900 text-white">
+      <div className="container mx-auto px-4">
+        <motion.h2 
+          className="text-4xl font-bold mb-12 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Educational Journey
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certificates.map((cert, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <CertificateCard {...cert} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
