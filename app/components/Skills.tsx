@@ -6,19 +6,22 @@ import { HiCode, HiServer, HiShieldCheck, HiSupport, HiChip, HiDatabase } from '
 
 const Skills = () => {
   const skills = [
-    { name: 'React', level: 90 },
-    { name: 'Next.js', level: 85 },
-    { name: 'TypeScript', level: 80 },
-    { name: 'Node.js', level: 75 },
-    { name: 'CSS/Tailwind', level: 85 },
+    { name: 'Networking Fundamentals', level: 75 },
+    { name: 'Windows OS', level: 80 },
+    { name: 'Linux Basics', level: 70 },
+    { name: 'IT Support', level: 85 },
+    { name: 'Hardware Troubleshooting', level: 80 },
+    { name: 'Basic Cybersecurity', level: 65 },
+    { name: 'Cloud Computing Basics', level: 60 },
+    { name: 'Microsoft Office Suite', level: 90 },
   ];
 
   return (
     <section className="py-16 px-4 md:px-8 bg-gray-800">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-green-400">Skills</h2>
-      <div className="max-w-3xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-green-400">Technical Skills</h2>
+      <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {skills.map((skill, index) => (
-          <div key={index} className="mb-6">
+          <div key={index} className="mb-4">
             <div className="flex justify-between mb-2">
               <span className="text-lg font-semibold text-white">{skill.name}</span>
               <span className="text-gray-400">{skill.level}%</span>
