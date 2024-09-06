@@ -4,139 +4,92 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiAcademicCap, HiBookOpen, HiLightBulb, HiChevronDown, HiChevronUp } from 'react-icons/hi';
 
-const Education = () => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+interface Education {
+  degree: string;
+  institution: string;
+  year: string;
+  description: string[];
+}
 
-  const educationItems = [
+const EducationCard = ({ education }: { education: Education }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <motion.div 
+      className="bg-gray-800 rounded-lg p-6 mb-6 cursor-pointer"
+      whileHover={{ scale: 1.02 }}
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      <h3 className="text-xl font-bold text-green-400 mb-2">{education.degree}</h3>
+      <p className="text-gray-300 mb-2">{education.institution}</p>
+      <p className="text-gray-400 mb-4">{education.year}</p>
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul className="list-disc list-inside text-gray-300">
+              {education.description.map((item, index) => (
+                <li key={index} className="mb-2">{item}</li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <motion.button 
+        className="mt-4 text-green-400 underline focus:outline-none"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {isExpanded ? 'Show Less' : 'Show More'}
+      </motion.button>
+    </motion.div>
+  );
+};
+
+const Education = () => {
+  const educationHistory: Education[] = [
     {
-      title: "Associate Degree in Computer Science",
-      institution: "University of the People",
-      date: "Expected Graduation: October 2024",
-      icon: <HiAcademicCap className="w-8 h-8" />,
-      color: 'bg-blue-500',
-      details: [
-        "CGPA: 3.16",
-        "Major: Computer Science",
-        "Key Courses: Web Programming, Operating Systems, Databases, Networking",
-        "Proctored Courses: Completed 5 courses including Web Programming and Operating Systems",
+      degree: "Bachelor of Science in Computer Science",
+      institution: "University of Example",
+      year: "2018 - 2022",
+      description: [
+        "Focused on software development, algorithms, and data structures",
+        "Completed projects in web development, mobile app development, and machine learning",
+        "Participated in coding competitions and hackathons"
       ]
     },
     {
-      title: "Google IT Support Professional Certificate",
-      institution: "Google",
-      date: "Completed: Aug 23, 2024",
-      icon: <HiBookOpen className="w-8 h-8" />,
-      color: 'bg-green-500',
-      details: [
-        "Gained hands-on experience in IT support, networking, operating systems, and security",
-        "Developed skills in customer service and problem-solving in IT contexts"
-      ]
-    },
-    {
-      title: "Ongoing Professional Development",
-      institution: "Self-study",
-      date: "Current",
-      icon: <HiLightBulb className="w-8 h-8" />,
-      color: 'bg-yellow-500',
-      details: [
-        "Currently studying for the CompTIA A+ certification",
-        "Enhancing skills in IT fundamentals, troubleshooting, networking, and security"
+      degree: "High School Diploma",
+      institution: "Example High School",
+      year: "2014 - 2018",
+      description: [
+        "Excelled in mathematics and computer science courses",
+        "Participated in robotics club and science fairs",
+        "Developed a passion for technology and problem-solving"
       ]
     }
   ];
 
-  const toggleExpand = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
-      <div className="max-w-3xl w-full mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400">
-            Education Journey
-          </h1>
-          <h2 className="text-lg md:text-xl lg:text-2xl text-gray-400">
-            Continuous Learning and Growth
-          </h2>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="mb-12 text-center"
-        >
-          <p className="text-base md:text-lg lg:text-xl text-gray-300">
-            Committed to expanding knowledge and skills in the ever-evolving field of IT and Computer Science.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="space-y-4"
-        >
-          {educationItems.map((item, index) => (
-            <motion.div
-              key={item.title}
-              className={`${item.color} rounded-lg shadow-lg overflow-hidden`}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 25px rgba(255, 255, 255, 0.2)' }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <div 
-                className="p-4 flex items-center justify-between cursor-pointer"
-                onClick={() => toggleExpand(index)}
-              >
-                <div className="flex items-center">
-                  <div className="text-white mr-4">{item.icon}</div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white">{item.title}</h3>
-                    <p className="text-sm text-gray-200">{item.institution}</p>
-                  </div>
-                </div>
-                {expandedIndex === index ? <HiChevronUp className="w-6 h-6" /> : <HiChevronDown className="w-6 h-6" />}
-              </div>
-              <AnimatePresence>
-                {expandedIndex === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="px-4 pb-4"
-                  >
-                    <p className="text-xs text-gray-300 mb-2">{item.date}</p>
-                    <ul className="list-disc list-inside text-sm text-white space-y-1">
-                      {item.details.map((detail, detailIndex) => (
-                        <li key={detailIndex}>{detail}</li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-base md:text-lg text-gray-400">
-            Always seeking new opportunities to learn and grow in the field of IT and Computer Science.
-          </p>
-        </motion.div>
+    <section className="py-16 px-4 md:px-8 bg-gray-900">
+      <motion.h2 
+        className="text-3xl md:text-4xl font-bold mb-8 text-center text-green-400"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Education Journey
+      </motion.h2>
+      <div className="max-w-3xl mx-auto">
+        {educationHistory.map((edu, index) => (
+          <EducationCard key={index} education={edu} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
