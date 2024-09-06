@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
       
       <div className="max-w-4xl mx-auto text-center z-10">
         <motion.h1 
-          className="text-6xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
+          className="text-6xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-500"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -36,14 +36,13 @@ const HomePage: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <span className="text-green-400 font-semibold">Aspiring </span>
           <motion.span
             key={currentTextIndex}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="font-bold"
+            className="font-bold text-blue-400"
           >
             {texts[currentTextIndex]}
           </motion.span>
@@ -54,8 +53,8 @@ const HomePage: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          Passionate about technology and eager to start my career in IT. 
-          Seeking an entry-level position to apply my skills and grow in the field.
+          Dedicated IT professional with a strong foundation in web development and problem-solving. 
+          Committed to delivering efficient solutions and driving technological innovation.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -63,15 +62,15 @@ const HomePage: React.FC = () => {
           transition={{ delay: 1, duration: 0.8 }}
           className="space-x-6"
         >
-          <Link href="#skills" 
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
-          >
-            View My Skills
-          </Link>
-          <Link href="#contact" 
+          <Link href="#expertise" 
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
           >
-            Contact Me
+            My Expertise
+          </Link>
+          <Link href="#projects" 
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
+          >
+            View Projects
           </Link>
         </motion.div>
         
@@ -82,9 +81,9 @@ const HomePage: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          <a href="#" className="text-white hover:text-green-400 transition-colors"><FaLinkedin size={24} /></a>
-          <a href="#" className="text-white hover:text-green-400 transition-colors"><FaGithub size={24} /></a>
-          <a href="#" className="text-white hover:text-green-400 transition-colors"><FaEnvelope size={24} /></a>
+          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><FaLinkedin size={24} /></a>
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors"><FaGithub size={24} /></a>
+          <a href="mailto:your.email@example.com" className="text-white hover:text-blue-400 transition-colors"><FaEnvelope size={24} /></a>
         </motion.div>
       </div>
       
