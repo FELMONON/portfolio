@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaLinkedin, FaEnvelope, FaChevronDown } from 'react-icons/fa';
-import Link from 'next/link';
+import { BiCodeAlt } from 'react-icons/bi';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -22,22 +22,30 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 text-white p-4 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-grid-white/[0.2] bg-grid-white/[0.2] transform -skew-y-12"></div>
+    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMTQxNTUiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRoLTJWMGgydjM0em0tNCAwVjBoLTJ2MzRoMnptLTYgMGgtMlYwaDF2MzRoMXpNMjQgMHYzNGgtMlYwaDJ6bS00IDBoLTJ2MzRoMlYwem0tNiAzNGgtMlYwaDJ2MzR6bS02IDBoLTJWMGgydjM0eiIvPjwvZz48L2c+PC9zdmc+')] bg-repeat"></div>
       </div>
       
       <div className="max-w-4xl mx-auto text-center z-10">
-        <motion.h1 
-          className="text-7xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-500"
+        <motion.div 
+          className="mb-8"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <BiCodeAlt className="text-8xl md:text-9xl mx-auto text-blue-500" />
+        </motion.div>
+        <motion.h1 
+          className="text-6xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           Felmon Fekadu
         </motion.h1>
         <motion.div
-          className="text-4xl md:text-5xl mb-8 h-20"
+          className="text-3xl md:text-4xl mb-8 h-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -54,7 +62,7 @@ const HomePage: React.FC = () => {
           </motion.span>
         </motion.div>
         <motion.p 
-          className="text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg mb-12 max-w-2xl mx-auto leading-relaxed text-gray-300"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -71,14 +79,14 @@ const HomePage: React.FC = () => {
           transition={{ delay: 1.2 }}
         >
           <a href="https://www.linkedin.com/in/felmonfekadu/" target="_blank" rel="noopener noreferrer" 
-             className="text-white hover:text-blue-400 transition-colors inline-flex items-center">
-            <FaLinkedin size={32} />
-            <span className="ml-2">LinkedIn</span>
+             className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center bg-gray-800 px-4 py-2 rounded-lg">
+            <FaLinkedin size={24} className="mr-2" />
+            <span>LinkedIn</span>
           </a>
           <a href="mailto:felmonwork@gmail.com" 
-             className="text-white hover:text-green-400 transition-colors inline-flex items-center">
-            <FaEnvelope size={32} />
-            <span className="ml-2">felmonwork@gmail.com</span>
+             className="text-green-400 hover:text-green-300 transition-colors inline-flex items-center bg-gray-800 px-4 py-2 rounded-lg">
+            <FaEnvelope size={24} className="mr-2" />
+            <span>Email</span>
           </a>
         </motion.div>
       </div>
@@ -90,7 +98,7 @@ const HomePage: React.FC = () => {
         transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
         onClick={scrollToNextSection}
       >
-        <FaChevronDown className="w-8 h-8 text-white animate-bounce" />
+        <FaChevronDown className="w-8 h-8 text-blue-400 animate-bounce" />
       </motion.div>
     </section>
   );

@@ -2,51 +2,57 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaServer, FaNetworkWired, FaShieldAlt, FaTools } from 'react-icons/fa';
+
+const SkillCard: React.FC<{ icon: React.ReactNode; title: string; skills: string[] }> = ({ icon, title, skills }) => (
+  <motion.div 
+    className="bg-gray-800 p-6 rounded-lg shadow-lg"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <div className="text-4xl mb-4 text-blue-400">{icon}</div>
+    <h3 className="text-xl font-semibold mb-2 text-blue-300">{title}</h3>
+    <ul className="text-gray-400">
+      {skills.map((skill, index) => (
+        <li key={index} className="mb-1">{skill}</li>
+      ))}
+    </ul>
+  </motion.div>
+);
 
 const Skills: React.FC = () => {
-  const itSkills = [
-    { name: "Network Troubleshooting", level: 85 },
-    { name: "Windows Server Administration", level: 80 },
-    { name: "Linux Systems", level: 75 },
-    { name: "IT Security", level: 80 },
-    { name: "Cloud Services (AWS, Azure)", level: 70 },
-    { name: "Virtualization", level: 75 },
-    { name: "Help Desk Support", level: 90 },
-    { name: "Hardware Maintenance", level: 85 },
-  ];
-
   return (
     <section id="skills" className="py-20 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl font-bold mb-12 text-center"
+          className="text-4xl font-bold mb-12 text-center text-blue-400"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           IT Skills
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {itSkills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-800 p-4 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <h3 className="text-lg font-semibold mb-2">{skill.name}</h3>
-              <div className="w-full bg-gray-700 rounded-full h-2.5">
-                <motion.div 
-                  className="bg-blue-500 h-2.5 rounded-full" 
-                  initial={{ width: 0 }}
-                  animate={{ width: `${skill.level}%` }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                ></motion.div>
-              </div>
-              <span className="text-sm text-gray-400">{skill.level}%</span>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <SkillCard 
+            icon={<FaServer />}
+            title="System Administration"
+            skills={["Windows Server", "Linux", "Active Directory", "Virtualization"]}
+          />
+          <SkillCard 
+            icon={<FaNetworkWired />}
+            title="Networking"
+            skills={["TCP/IP", "VLANs", "Firewalls", "VPNs"]}
+          />
+          <SkillCard 
+            icon={<FaShieldAlt />}
+            title="Security"
+            skills={["Threat Analysis", "Encryption", "Access Control", "Security Audits"]}
+          />
+          <SkillCard 
+            icon={<FaTools />}
+            title="Troubleshooting"
+            skills={["Hardware Diagnostics", "Software Debugging", "Network Troubleshooting", "Performance Optimization"]}
+          />
         </div>
       </div>
     </section>
