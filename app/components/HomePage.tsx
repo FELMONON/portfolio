@@ -63,25 +63,32 @@ const HomePage: React.FC = () => {
           className="space-x-6"
         >
           <Link href="#skills" 
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
           >
             IT Skills
           </Link>
           <Link href="#certifications" 
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 inline-block hover:shadow-lg hover:-translate-y-1"
           >
             Certifications
           </Link>
         </motion.div>
         
         <motion.div 
-          className="mt-12 space-x-6"
+          className="mt-12 space-x-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          <a href="https://www.linkedin.com/in/felmonfekadu/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
-            <FaLinkedin size={24} />
+          <a href="https://www.linkedin.com/in/felmonfekadu/" target="_blank" rel="noopener noreferrer" 
+             className="text-white hover:text-blue-400 transition-colors inline-flex items-center">
+            <FaLinkedin size={32} />
+            <span className="ml-2">LinkedIn</span>
+          </a>
+          <a href="mailto:felmonwork@gmail.com" 
+             className="text-white hover:text-green-400 transition-colors inline-flex items-center">
+            <FaEnvelope size={32} />
+            <span className="ml-2">felmonwork@gmail.com</span>
           </a>
         </motion.div>
       </div>
@@ -92,7 +99,7 @@ const HomePage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
       >
-        <svg className="w-6 h-6 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8 text-white animate-bounce" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </motion.div>
