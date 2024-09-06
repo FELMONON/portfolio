@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiCode, HiServer, HiShieldCheck, HiSupport, HiChip, HiDatabase } from 'react-icons/hi';
 
@@ -15,15 +15,16 @@ interface SkillCategoryProps {
 }
 
 const SkillCategory: React.FC<SkillCategoryProps> = ({ category, skills }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="mb-6">
       <button
-        className="w-full text-left text-xl font-bold text-green-400 mb-2 focus:outline-none"
+        className="w-full text-left text-xl font-bold text-green-400 mb-2 focus:outline-none flex justify-between items-center"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {category} {isOpen ? '▼' : '▶'}
+        <span>{category}</span>
+        <span>{isOpen ? '▼' : '▶'}</span>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -59,35 +60,11 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ category, skills }) => {
 const Skills: React.FC = () => {
   const skillCategories: SkillCategoryProps[] = [
     {
-      category: "Basic Computer Hardware and Software",
+      category: "IT Fundamentals",
       skills: [
-        { name: "Hardware Components", level: 85 },
-        { name: "Operating Systems (Windows, macOS, Linux)", level: 80 },
-        { name: "Software Applications", level: 90 },
-      ]
-    },
-    {
-      category: "Troubleshooting and Diagnostics",
-      skills: [
-        { name: "Basic Troubleshooting Techniques", level: 85 },
-        { name: "Network Troubleshooting", level: 75 },
-        { name: "Diagnostic Tools and Utilities", level: 80 },
-      ]
-    },
-    {
-      category: "Networking Fundamentals",
-      skills: [
-        { name: "Network Basics (IP, DNS, DHCP, TCP/IP)", level: 80 },
-        { name: "Network Types and Devices", level: 75 },
-        { name: "Wi-Fi and Wireless Networks", level: 70 },
-      ]
-    },
-    {
-      category: "Cybersecurity Basics",
-      skills: [
-        { name: "Security Principles", level: 75 },
-        { name: "Common Threats", level: 80 },
-        { name: "Security Practices", level: 85 },
+        { name: "Hardware Troubleshooting", level: 85 },
+        { name: "Operating Systems (Windows, Linux)", level: 80 },
+        { name: "Network Basics", level: 75 },
       ]
     },
     {
@@ -96,14 +73,21 @@ const Skills: React.FC = () => {
         { name: "HTML/CSS", level: 90 },
         { name: "JavaScript", level: 85 },
         { name: "React", level: 80 },
-        { name: "Node.js", level: 75 },
+      ]
+    },
+    {
+      category: "Cybersecurity Basics",
+      skills: [
+        { name: "Security Principles", level: 70 },
+        { name: "Threat Identification", level: 65 },
+        { name: "Security Best Practices", level: 75 },
       ]
     },
     // Add more categories as needed
   ];
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-gray-800">
+    <section id="skills" className="py-16 px-4 md:px-8 bg-gray-800">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-green-400">Technical Skills</h2>
       <div className="max-w-3xl mx-auto">
         {skillCategories.map((category, index) => (

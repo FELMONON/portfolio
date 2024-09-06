@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const HomePage: React.FC = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -10,7 +11,7 @@ const HomePage: React.FC = () => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [texts.length]);
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white p-4">
@@ -54,18 +55,16 @@ const HomePage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <a 
-            href="#skills" 
+          <Link href="#skills" 
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 inline-block mr-4"
           >
             View My Skills
-          </a>
-          <a 
-            href="#contact" 
+          </Link>
+          <Link href="#contact" 
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 inline-block"
           >
             Contact Me
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
