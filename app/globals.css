@@ -141,3 +141,9 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.font-tech {
+  font-family: 'Share Tech Mono', monospace;
+}
