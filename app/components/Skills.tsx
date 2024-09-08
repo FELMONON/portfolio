@@ -6,13 +6,14 @@ import { FaServer, FaNetworkWired, FaShieldAlt, FaTools } from 'react-icons/fa';
 
 const SkillCard: React.FC<{ icon: React.ReactNode; title: string; skills: string[] }> = ({ icon, title, skills }) => (
   <motion.div 
-    className="bg-gray-800 p-6 rounded-lg shadow-lg"
+    className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg border border-cyan-400 relative overflow-hidden card-hover"
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
-    <div className="text-4xl mb-4 text-blue-400">{icon}</div>
-    <h3 className="text-xl font-semibold mb-2 text-blue-300">{title}</h3>
-    <ul className="text-gray-400">
+    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-purple-400"></div>
+    <div className="text-4xl mb-4 text-cyan-400 neon-glow">{icon}</div>
+    <h3 className="text-xl font-semibold mb-2 text-cyan-300">{title}</h3>
+    <ul className="text-gray-300">
       {skills.map((skill, index) => (
         <li key={index} className="mb-1">{skill}</li>
       ))}
@@ -22,10 +23,10 @@ const SkillCard: React.FC<{ icon: React.ReactNode; title: string; skills: string
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 bg-gray-900 text-white">
+    <section id="skills" className="py-20 bg-transparent text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl font-bold mb-12 text-center text-blue-400"
+          className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 neon-glow"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}

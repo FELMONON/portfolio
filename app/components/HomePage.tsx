@@ -22,22 +22,22 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
+    <section className="min-h-screen flex flex-col items-center justify-center bg-transparent text-white p-4 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMzMTQxNTUiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRoLTJWMGgydjM0em0tNCAwVjBoLTJ2MzRoMnptLTYgMGgtMlYwaDF2MzRoMXpNMjQgMHYzNGgtMlYwaDJ6bS00IDBoLTJ2MzRoMlYwem0tNiAzNGgtMlYwaDJ2MzR6bS02IDBoLTJWMGgydjM0eiIvPjwvZz48L2c+PC9zdmc+')] bg-repeat"></div>
       </div>
       
       <div className="max-w-4xl mx-auto text-center z-10">
         <motion.div 
-          className="mb-8"
+          className="mb-8 relative"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <BiCodeAlt className="text-8xl md:text-9xl mx-auto text-blue-500" />
+          <BiCodeAlt className="text-8xl md:text-9xl mx-auto text-cyan-400 neon-glow" />
         </motion.div>
         <motion.h1 
-          className="text-6xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400"
+          className="text-6xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 neon-glow"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -56,7 +56,7 @@ const HomePage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="font-bold text-blue-400"
+            className="font-bold text-cyan-400 neon-glow"
           >
             {texts[currentTextIndex]}
           </motion.span>
@@ -79,12 +79,12 @@ const HomePage: React.FC = () => {
           transition={{ delay: 1.2 }}
         >
           <a href="https://www.linkedin.com/in/felmonfekadu/" target="_blank" rel="noopener noreferrer" 
-             className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center bg-gray-800 px-4 py-2 rounded-lg">
+             className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center bg-gray-800 bg-opacity-50 px-6 py-3 rounded-full border border-cyan-400 hover:border-cyan-300 card-hover">
             <FaLinkedin size={24} className="mr-2" />
             <span>LinkedIn</span>
           </a>
           <a href="mailto:felmonwork@gmail.com" 
-             className="text-green-400 hover:text-green-300 transition-colors inline-flex items-center bg-gray-800 px-4 py-2 rounded-lg">
+             className="text-purple-400 hover:text-purple-300 transition-colors inline-flex items-center bg-gray-800 bg-opacity-50 px-6 py-3 rounded-full border border-purple-400 hover:border-purple-300 card-hover">
             <FaEnvelope size={24} className="mr-2" />
             <span>Email</span>
           </a>
@@ -98,10 +98,12 @@ const HomePage: React.FC = () => {
         transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
         onClick={scrollToNextSection}
       >
-        <FaChevronDown className="w-8 h-8 text-blue-400 animate-bounce" />
+        <FaChevronDown className="w-8 h-8 text-cyan-400 animate-bounce neon-glow" />
       </motion.div>
     </section>
   );
 };
+
+export default HomePage;
 
 export default HomePage;
