@@ -52,18 +52,18 @@ const certificates: Certificate[] = [
 
 const CertificateCard: React.FC<Certificate> = ({ title, issuer, date, description, status, icon: Icon }) => (
   <motion.div 
-    className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg border border-cyan-400 relative overflow-hidden card-hover"
+    className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg border border-teal-400 relative overflow-hidden"
     whileHover={{ scale: 1.03 }}
     whileTap={{ scale: 0.98 }}
   >
-    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 to-purple-400"></div>
+    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-indigo-500"></div>
     <div className="flex items-center mb-4">
-      <Icon className="text-cyan-400 mr-2 neon-glow" size={24} />
-      <h3 className="text-xl font-semibold text-cyan-300">{title}</h3>
+      <Icon className="text-teal-400 mr-2" size={24} />
+      <h3 className="text-xl font-semibold text-teal-300">{title}</h3>
     </div>
     <p className="text-gray-400 mb-2">{issuer} • {date}</p>
     <p className="text-gray-300 mb-4">{description}</p>
-    <span className={`px-3 py-1 rounded-full text-sm ${status === 'Completed' ? 'bg-green-500 text-white' : 'bg-yellow-500 text-gray-800'}`}>
+    <span className={`px-3 py-1 rounded-full text-sm ${status === 'Completed' ? 'bg-teal-500 text-gray-900' : 'bg-indigo-500 text-gray-200'}`}>
       {status}
     </span>
   </motion.div>
@@ -71,10 +71,10 @@ const CertificateCard: React.FC<Certificate> = ({ title, issuer, date, descripti
 
 const Education: React.FC = () => {
   return (
-    <section id="education" className="py-20 bg-transparent text-white">
+    <section id="education" className="py-20 bg-gray-900 text-gray-300">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 neon-glow"
+          className="text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-500 font-tech"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
